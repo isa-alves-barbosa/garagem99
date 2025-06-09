@@ -1,6 +1,7 @@
 package local.isabela.garagem99.controllers;
 
 import java.util.List;
+import local.isabela.garagem99.DTO.VeiculoDTO;
 import local.isabela.garagem99.entities.Veiculo;
 import local.isabela.garagem99.services.GaragemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,8 @@ public class GaragemController {
     }
 
     @GetMapping("/garagem/forsale/{id}")
-    public List<Veiculo> findById(@PathVariable long id) {
-        List<Veiculo> result = garagemService.findById(id);
+    public List<VeiculoDTO> findById(@PathVariable long id) {
+        List<VeiculoDTO> result = garagemService.findById(id);
         return result;
     }
 

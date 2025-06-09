@@ -1,6 +1,8 @@
 
 package local.isabela.garagem99.DTO;
 
+import local.isabela.garagem99.entities.Veiculo;
+
 /**
  *
  * @author ppjata
@@ -12,20 +14,17 @@ public class VeiculoDTO {
  private String cor;
  private long ano;
  private long km;
- private String linkimagem;
- private String avarias;
-
+ 
     public VeiculoDTO() {
     }
-    public VeiculoDTO(long id, String marca, String modelo, String cor, long ano, long km, String linkimagem, String avarias) {
-        this.id = id;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.cor = cor;
-        this.ano = ano;
-        this.km = km;
-        this.linkimagem = linkimagem;
-        this.avarias = avarias;
+    public VeiculoDTO(Veiculo veiculo) {
+        this.id = veiculo.getId();
+        this.marca = veiculo.getMarca();
+        this.modelo =veiculo.getModelo();
+        this.cor = veiculo.getCor();
+        this.ano = veiculo.getAno();
+        this.km = veiculo.getKm();
+        
     }
 
     public long getId() {
@@ -52,13 +51,7 @@ public class VeiculoDTO {
         return km;
     }
 
-    public String getLinkimagem() {
-        return linkimagem;
-    }
 
-    public String getAvarias() {
-        return avarias;
-    }
  
 }
 

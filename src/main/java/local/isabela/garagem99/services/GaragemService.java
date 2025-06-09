@@ -2,6 +2,7 @@
 package local.isabela.garagem99.services;
 
 import java.util.List;
+import local.isabela.garagem99.DTO.VeiculoDTO;
 import local.isabela.garagem99.entities.Veiculo;
 import local.isabela.garagem99.repositories.VeiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,14 @@ public class GaragemService {
          return result;
      }
 
-      public List<Veiculo> findById(long id) {
-      List<Veiculo> result = veiculoRepository.findById(id);
-      return result;
-     }
+      
+     public List<VeiculoDTO> findById(long id){
+     List<Veiculo>resultVeiculo = veiculoRepository.findById(id);
+     List<VeiculoDTO> resultDTO = resultVeiculo.stream()
+    .map(x -> new VeiculoDTO(x)).toList();
+      
+     return resultDTO;
+  }
       
       public List<Veiculo> findByCor(String cor) {
       List<Veiculo> result = veiculoRepository.findByCor(cor);
